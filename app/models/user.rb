@@ -26,4 +26,21 @@ class User < ActiveRecord::Base
     self.friendships.where(state: "pending")
   end
 
+  def friendship_status(other_user)
+    friendship = Friendship.where(user_id: [self.id,other_user.id], friend_id: [self.id, other_user.id])
+    unless friendship.any?
+      return "not_friends"
+    else
+      if friendship.first.state == "active"
+        return "friends"
+      else
+        if friendship.first.user == self
+          return "pending"
+        else
+          return "requested"
+        end
+      end
+    end
+  end
+
 end
