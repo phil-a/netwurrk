@@ -6,21 +6,21 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.request_friendship(@user)
     respond_to do |format|
-      format.html {redirect_to users_path, notice: "Frienship Created"}
+      format.html {redirect_to users_path, notice: "Friendship Created"}
     end
   end
 
   def destroy
     @friendship.destroy
     respond_to do |format|
-      format.html {redirect_to users_path, notice: "Frienship Deleted"}
+      format.html {redirect_to users_path, notice: "Friendship Deleted"}
     end
   end
 
   def accept
     @friendship.accept_friendship
     respond_to do |format|
-      format.html {redirect_to users_path, notice: "Frienship Accepted"}
+      format.html {redirect_to users_path, notice: "Friendship Accepted"}
     end
   end
 
