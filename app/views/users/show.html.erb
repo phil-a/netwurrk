@@ -40,8 +40,10 @@
       </div>  
     </div>  
     <!-- Posting Area -->
-    <div class="col-md-6"></div>
-
+    <div class="col-md-6">
+    <%= render "posts/form" %>
+    <%= render @posts %>
+    </div>
     <!-- Activity Area -->
     <div class="col-md-3">
       <div class = "panel panel-default">
